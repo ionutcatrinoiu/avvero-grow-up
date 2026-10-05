@@ -17,7 +17,7 @@ Butonul mic Adaugă este în dreapta sus. Poți adăuga câte un fișier index.h
 
 Fiecare prezentare are un buton Șterge. Ștergerea cere confirmare și aceeași parolă de administrare și elimină definitiv fișierul din Blob.
 
-Prezentările se deschid în pagină, într-un vizualizator izolat. Înapoi la prezentări revine la listă. Fișierele trebuie să fie HTML autonome, cu resurse incluse sau URL-uri absolute; imaginile locale din alte fișiere nu sunt încărcate automat.
+Prezentările se deschid în pagină, într-un vizualizator izolat. Vizualizatorul ocupă toată pagina, fără bară suplimentară. Butonul Înapoi al browserului revine la listă când ai deschis prezentarea din hub. Linkurile scurte funcționează și la acces direct sau reîncărcare. Exemplu: titlul 01 Compania AVVERO generează /compania-avvero. Linkurile vechi cu ?presentation= rămân compatibile. Pentru titluri identice, aplicația adaugă un identificator la linkul celei de-a doua prezentări. Fișierele trebuie să fie HTML autonome, cu resurse incluse sau URL-uri absolute; imaginile locale din alte fișiere nu sunt încărcate automat.
 
 ## Prima instalare pe Vercel
 
