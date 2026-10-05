@@ -6,7 +6,7 @@ Aplicație independentă pentru prezentări HTML, cu fundal despre lentile oftal
 
 1. Dezarhivează și înlocuiește fișierele proiectului GitHub cu conținutul folderului avvero-grow-up. Nu încărca folderul părinte ca subfolder.
 2. Șterge din GitHub vechiul fișier public/presentations/compania-avvero.html și vechiul folder presentations dacă există din versiunea inițială. Arhiva nouă nu le conține.
-3. Păstrează store-ul Blob privat și variabilele BLOB_READ_WRITE_TOKEN și UPLOAD_PASSWORD în Vercel.
+3. Păstrează store-ul Blob privat conectat și UPLOAD_PASSWORD în Vercel. Aplicația suportă atât OIDC (BLOB_STORE_ID și BLOB_WEBHOOK_PUBLIC_KEY adăugate de Vercel), cât și BLOB_READ_WRITE_TOKEN. Nu copia manual un token dacă proiectul folosește OIDC.
 4. Salvează modificările prin Commit. Vercel va publica actualizarea automat dacă repository-ul este conectat.
 
 Prezentările încărcate anterior în Blob sunt păstrate. Pentru a începe și cu lista încărcărilor goală, folosește butonul Șterge pentru fiecare prezentare.
