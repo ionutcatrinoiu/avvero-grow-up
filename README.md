@@ -28,3 +28,11 @@ Parola și tokenul se păstrează numai în Vercel, nu în GitHub.
 ## Verificare
 
 Node.js 24. Rulează npm ci, npm run check, npm test și npm run build.
+
+## Acces prin PIN
+
+În Vercel → Settings → Environment Variables, adaugă ACCESS_PIN, exact 4 cifre, și ACCESS_SECRET, un secret aleator de minimum 32 de caractere. Selectează Production și Preview, apoi fă Redeploy. Nu salva valorile în GitHub. Fără ambele variabile, accesul rămâne blocat.
+
+PIN-ul se cere la fiecare deschidere, reîncărcare sau restaurare a paginii din cache-ul browserului, inclusiv la linkuri directe. Aplicația nu salvează autentificarea în localStorage, sessionStorage sau cookie-uri. Tokenul de acces rămâne în memoria paginii și expiră după 30 de minute. Lista, conținutul și operațiile de administrare cer autorizare pe server. Parola UPLOAD_PASSWORD protejează suplimentar încărcarea și ștergerea.
+
+După 5 încercări greșite, instanța serverului aplică o pauză de 15 minute pe adresa IP. Acest contor este în memoria instanței, nu un contor global distribuit.
