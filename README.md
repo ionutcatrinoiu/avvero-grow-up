@@ -1,33 +1,30 @@
-# Avvero Grow-Up pentru Vercel
+# Avvero Grow-Up
 
-Aplicație independentă pentru GitHub și Vercel. Include prima prezentare Avvero, butonul mic „Adaugă” în dreapta sus și drag and drop pe toată pagina.
+Aplicație independentă pentru prezentări HTML, cu fundal despre lentile oftalmice, butoane liquid glass și efect luminos la apăsare. Nu include prezentări preinstalate.
 
-## Înlocuirea versiunii anterioare
+## Actualizarea proiectului existent
 
-1. În repository-ul `ionutcatrinoiu/avvero-grow-up`, elimină fișierele versiunii vechi. În special, elimină `server.js` și `app-server.js`. Nu amesteca cele două versiuni.
-2. Dezarhivează pachetul. Urcă în rădăcina repository-ului conținutul folderului `avvero-grow-up`, nu folderul exterior și nu arhiva ZIP.
-3. În Vercel, deschide proiectul `avvero-presentations`. Dacă ai setări Build & Development cu Override, dezactivează-le. `vercel.json` setează Framework Preset „Other”, Build Command `npm run build` și Output Directory `public`. Root Directory trebuie să corespundă folderului care conține `package.json` și `vercel.json`.
-4. Prima pagină și prezentarea inițială pot funcționa fără configurarea stocării. Pentru upload, continuă cu pașii de mai jos.
+1. Dezarhivează și înlocuiește fișierele proiectului GitHub cu conținutul folderului avvero-grow-up. Nu încărca folderul părinte ca subfolder.
+2. Șterge din GitHub vechiul fișier public/presentations/compania-avvero.html și vechiul folder presentations dacă există din versiunea inițială. Arhiva nouă nu le conține.
+3. Păstrează store-ul Blob privat și variabilele BLOB_READ_WRITE_TOKEN și UPLOAD_PASSWORD în Vercel.
+4. Salvează modificările prin Commit. Vercel va publica actualizarea automat dacă repository-ul este conectat.
 
-## Activarea încărcării permanente
+Prezentările încărcate anterior în Blob sunt păstrate. Pentru a începe și cu lista încărcărilor goală, folosește butonul Șterge pentru fiecare prezentare.
 
-1. În proiectul Vercel, intră în Storage. Creează un store Vercel Blob cu acces „Private” și conectează-l la proiectul `avvero-presentations`. Folosește un store dedicat acestei aplicații. Vercel adaugă automat `BLOB_READ_WRITE_TOKEN`.
-2. În Settings > Environment Variables, adaugă `UPLOAD_PASSWORD` cu parola pe care vrei să o folosești la adăugarea prezentărilor. Activează variabilele pentru Production și Preview. Tokenul Blob și parola sunt secrete. Nu le pune în GitHub.
-3. Fă Redeploy după conectarea store-ului și după setarea parolei.
-4. Deschide pagina, apasă „Adaugă”, alege un fișier HTML, confirmă titlul și introdu parola. Poți trage fișierul oriunde în pagină. Upload-ul merge direct din browser în Blob. Serverul nu salvează fișiere pe discul Vercel.
+## Utilizare
 
-Prezentările noi rămân în Blob după reporniri și redeploy. Toate dispozitivele accesează aceeași listă. Fișierele identice nu se adaugă din nou. Dacă ai activat Vercel Deployment Protection, aceasta controlează separat cine poate deschide site-ul. Parola aplicației protejează numai încărcarea.
+Butonul mic Adaugă este în dreapta sus. Poți adăuga câte un fișier index.html prin selecție sau drag and drop. Introdu titlul și parola configurată în UPLOAD_PASSWORD. Limita unui fișier este 20 MB.
 
-## Fișierele HTML
+Fiecare prezentare are un buton Șterge. Ștergerea cere confirmare și aceeași parolă de administrare și elimină definitiv fișierul din Blob.
 
-Maximum 20 MB per prezentare. Folosește HTML cu imaginile incluse sau cu adrese absolute pentru resurse. Aplicația nu încarcă automat imaginile din folderul unui index.html. Prima prezentare se află în `public/presentations/compania-avvero.html`.
+Prezentările se deschid în pagină, într-un vizualizator izolat. Înapoi la prezentări revine la listă. Fișierele trebuie să fie HTML autonome, cu resurse incluse sau URL-uri absolute; imaginile locale din alte fișiere nu sunt încărcate automat.
 
-## Verificare și dezvoltare
+## Prima instalare pe Vercel
 
-Necesită Node.js 24. Rulează `npm ci`, `npm run check`, `npm test` și `npm run build`. Pentru dezvoltare completă, folosește `npx vercel dev`. Copiază `.env.example` în `.env.local` și completează variabilele pentru store-ul de test. Nu folosi datele de producție pentru teste.
+Încarcă proiectul în GitHub și importă repository-ul în Vercel. Framework: Other, build: npm run build, output: public. Creează și conectează un store Vercel Blob cu acces Private. Adaugă UPLOAD_PASSWORD în Settings → Environment Variables pentru Production. Folosește o parolă proprie. Fă Redeploy după configurarea variabilelor.
 
-## De ce diferă de prima versiune
+Parola și tokenul se păstrează numai în Vercel, nu în GitHub.
 
-Prima versiune crea un folder `data` la pornire și salva fișiere pe discul unui server Node.js. Această variantă folosește funcții Vercel și un store Blob persistent. Pagina principală și resursele inițiale sunt statice. Nu există un server care trebuie să pornească înainte de afișarea paginii.
+## Verificare
 
-Documentație: https://vercel.com/docs/vercel-blob/client-upload și https://vercel.com/docs/functions/runtimes/node-js.
+Node.js 24. Rulează npm ci, npm run check, npm test și npm run build.
