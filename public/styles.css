@@ -10,3 +10,6 @@
 
 /* Balanced PIN branding and borderless glass */
 .access-brand{gap:12px}.access-brand .principal-logo{width:126px}.access-brand img:last-child{width:126px}header,footer{border:0;box-shadow:none}@media(max-width:780px){.access-brand .principal-logo,.access-brand img:last-child{width:120px}}
+
+/* Open header/footer and larger login wordmark */
+header{max-width:1200px;margin:0 auto;padding:28px 36px}header,footer{background:transparent;border:0;border-radius:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}footer{padding:22px 0 0}.access-brand{gap:24px}.access-brand .principal-logo{width:120px}.access-brand img:last-child{width:152px}@media(max-width:780px){header{margin:0 auto;padding:23px 22px;max-width:1200px}footer{padding:20px 0 0}.access-brand .principal-logo{width:115px}.access-brand img:last-child{width:146px}}
